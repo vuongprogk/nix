@@ -136,6 +136,7 @@
     ntfs3g
     kitty
     docker
+    docker-compose
     vscode
     fd
     zoxide
@@ -164,6 +165,12 @@
     discord
     lazygit
     php
+    xdg-desktop-portal-hyprland
+    wireplumber
+    xwaylandvideobridge
+    obs-studio
+    fzf
+    jetbrains.rider
   ];
   
 
@@ -172,6 +179,8 @@
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
   programs.ssh.startAgent = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
