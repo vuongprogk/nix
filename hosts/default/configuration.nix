@@ -182,6 +182,13 @@
     obs-studio
     fzf
     jetbrains.rider
+    swaynotificationcenter
+    hyprshot
+    hyprpaper
+    libnotify
+    xdg-utils
+    projectlibre
+    beekeeper-studio
   ];
   
 
