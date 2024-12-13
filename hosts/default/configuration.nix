@@ -190,15 +190,17 @@
     projectlibre
     beekeeper-studio
   ];
-  
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # setup programs
   programs.nix-ld.enable = true;
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
   programs.ssh.startAgent = true;
+  programs.hyprlock.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.hyprlock = {};
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
