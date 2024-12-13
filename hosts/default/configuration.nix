@@ -75,13 +75,14 @@
     #media-session.enable = true;
   };
   i18n.inputMethod = {
-   type = "fcitx5";
-   enable = true;
-   fcitx5.addons = with pkgs; [
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
      fcitx5-gtk
      fcitx5-bamboo
-   ];
+    ];
   };
+  i18n.inputMethod.fcitx5.waylandFrontend=true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
