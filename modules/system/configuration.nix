@@ -6,6 +6,7 @@
     services.xserver.desktopManager.xterm.enable = false;
     programs.zsh.enable = true;
 
+    virtualisation.docker.enable = true;
     # Laptop-specific packages (the other ones are installed in `packages.nix`)
     environment.systemPackages = with pkgs; [
         acpi tlp git
