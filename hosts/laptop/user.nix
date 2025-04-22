@@ -9,7 +9,6 @@
         dunst.enable = true;
         hyprland.enable = true;
         wofi.enable = true;
-        waybar.enable = true;
 
         # cli
         nvim.enable = true;

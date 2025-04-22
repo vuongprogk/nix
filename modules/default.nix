@@ -6,7 +6,6 @@
         # gui
         ./firefox
         ./foot
-        ./waybar
         ./dunst
         ./hyprland
         ./wofi
