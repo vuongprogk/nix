@@ -141,17 +141,19 @@
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure
-    # security = {
-    #     sudo.enable = false;
-    #     doas = {
-    #         enable = true;
-    #         extraRules = [{
-    #             users = [ "ace" ];
-    #             keepEnv = true;
-    #             persist = true;
-    #         }];
-    #     };
-    # };
+    security = {
+        sudo.enable = true;
+        doas = {
+          enable = true;
+          extraRules = [
+            {
+              users = [ "ace" ];
+              keepEnv = true;
+              persist = true;
+            }
+          ];
+        };
+    };
 
     # Enable the X11 windowing system.
   services.xserver.enable = true;

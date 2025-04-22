@@ -6,9 +6,6 @@ let
 in {
     options.modules.nvim = { enable = mkEnableOption "nvim"; };
     config = mkIf cfg.enable {
-
-        home.file.".config/nvim".source = ./dot;
-        
         programs.zsh = {
             initExtra = ''
                 export EDITOR="nvim"
@@ -19,7 +16,6 @@ in {
                 nvim = "nvim -i NONE";
             };
         };
-
         programs.neovim = {
             enable = true;
         };
