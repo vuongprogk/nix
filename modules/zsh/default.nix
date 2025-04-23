@@ -55,7 +55,7 @@ in {
                 ls = "exa -a --icons";
                 tree = "exa --tree --icons";
                 nd = "nix develop -c $SHELL";
-                rebuild = "doas nixos-rebuild switch --flake $NIXOS_CONFIG_DIR --fast; notify-send 'Rebuild complete\!'";
+                rebuild = "doas -u ace nixos-rebuild switch --flake .#$(hostname) --fast; notify-send 'Rebuild complete\!'";
                 ll = "ls -l";
                 cd = "z";
             };

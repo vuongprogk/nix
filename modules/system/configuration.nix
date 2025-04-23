@@ -14,18 +14,21 @@
 
     # Install fonts
     fonts = {
-        packages = with pkgs; [
-            nerd-fonts.jetbrains-mono
-            roboto
-            openmoji-color
-        ];
+      enableDefaultPackages = true;
+      packages = with pkgs; [
+        nerd-fonts.jetbrains-mono 
+        roboto
+        openmoji-color
+        cascadia-code
+      ];
 
-        fontconfig = {
-            hinting.autohint = true;
-            defaultFonts = {
-              emoji = [ "OpenMoji Color" ];
-            };
+      fontconfig = {
+        enable = true;
+        hinting.autohint = true;
+        defaultFonts = {
+          emoji = [ "OpenMoji Color" ];
         };
+      };
     };
 
 
@@ -139,6 +142,10 @@
         ANKI_WAYLAND = "1";
         DISABLE_QT5_COMPAT = "0";
     };
+    environment.sessionVariables = {
+      GTK_THEME = "Adwaita-dark";
+      GTK_APPLICATION_PREFER_DARK_THEME = "1";
+    };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure
     security = {
@@ -157,6 +164,7 @@
 
     # Enable the X11 windowing system.
   services.xserver.enable = true;
+  programs.nix-ld.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
