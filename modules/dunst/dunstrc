@@ -1,0 +1,58 @@
+[global]
+monitor = 0
+follow = mouse
+origin = top-right
+offset = (20, 40)
+scale = 0
+width = 300
+height = 0
+notification_limit = 4
+progress_bar = true
+indicate_hidden = true
+separator_height = 2
+padding = 20
+horizontal_padding = 20
+text_icon_padding = 10
+frame_width = 3
+frame_color = "#89b4fa"  # a nice blue frame
+separator_color = frame
+sort = true
+idle_threshold = 120
+font = "JetBrainsMono Nerd Font 11"  # clean and modern
+format = "<b>%s</b>\n%b"
+alignment = center
+vertical_alignment = center
+show_age_threshold = 60
+word_wrap = true
+ellipsize = middle
+ignore_newline = false
+stack_duplicates = true
+hide_duplicate_count = false
+show_indicators = true
+icon_position = left
+min_icon_size = 24
+max_icon_size = 64
+sticky_history = true
+history_length = 100
+dmenu = "/run/current-system/sw/bin/dmenu -p dunst:"
+browser = "/run/current-system/sw/bin/xdg-open"
+corner_radius = 12
+timeout = 4
+
+[urgency_low]
+background = "#1e1e2e80"
+foreground = "#cdd6f4"
+frame_color = "#89b4fa"
+timeout = 4
+
+[urgency_normal]
+background = "#1e1e2e99"
+foreground = "#cdd6f4"
+frame_color = "#89b4fa"
+timeout = 6
+
+[urgency_critical]
+background = "#f38ba899"
+foreground = "#1e1e2e"
+frame_color = "#f38ba8"
+timeout = 0
