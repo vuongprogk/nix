@@ -20,7 +20,7 @@ in {
         position = "top";
         spacing = 2;
 
-        modules-left = [ "group/power" "group/battery" "group/backlight" "group/cpu" "group/memory" "group/pulseaudio" "keyboard-state" "network"];
+        modules-left = [ "group/power" "group/battery" "group/backlight" "group/cpu" "group/memory" "group/pulseaudio" "network"];
         modules-center = [ "custom/hyprprofile" "hyprland/workspaces" ];
         modules-right = [ "group/time" "idle_inhibitor" "tray" ];
 
@@ -78,14 +78,6 @@ in {
           "interval" = 3;
           "on-click" = "hyprprofile-dmenu";
         };
-        "keyboard-state" = {
-          "numlock" = true;
-          "format" = "{icon}";
-          "format-icons" = {
-            "locked" = "󰎠 ";
-            "unlocked" = "󱧓 ";
-          };
-        };
         "network"= {
           "interface"= "wlan0";
           "format-wifi"= "{icon} {essid} ({signalStrength}%)";
@@ -94,7 +86,6 @@ in {
           "format-disconnected"= "Disconnected ⚡";
           "tooltip-format"= "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}";
           "on-click"= "foot -e iwctl";
-          "on-click-right"= "nm-connection-editor";
         };
         "hyprland/workspaces" = {
           "format" = "{icon}";
@@ -137,7 +128,7 @@ in {
         "clock#time" = {
           "interval" = 1;
           "format" = "{:%I:%M:%S %p}";
-          "timezone" = "America/Chicago";
+          "timezone" = "Asia/Ho_Chi_Minh";
           "tooltip-format" = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -145,7 +136,7 @@ in {
         "clock#date" = {
           "interval" = 1;
           "format" = "{:%a %Y-%m-%d}";
-          "timezone" = "America/Chicago";
+          "timezone" = "Asia/Ho_Chi_Minh";
           "tooltip-format" = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';

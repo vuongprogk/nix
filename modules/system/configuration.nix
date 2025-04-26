@@ -98,25 +98,30 @@
 
     # Set up networking and secure it
     networking = {
-        wireless.iwd.enable = true;
-        wireless.enable = false;
-        wireless.iwd.settings = {
-          General = {
-            EnableNetworkConfiguration = true;
-          };
-          Network = {
-            EnableIPv6 = true;
-          };
-          Scan = {
-            DisablePeriodicScan = true;
-          };
+      wireless.iwd.enable = true;
+      wireless.enable = false;
+    networkmanager.enable = false;
+      wireless.iwd.settings = {
+        General = {
+          EnableNetworkConfiguration = true;
         };
-        firewall = {
-            enable = true;
-            # allowedTCPPorts = [ 443 80 ];
-            # allowedUDPPorts = [ 443 80 44857 ];
-            allowPing = false;
+        Network = {
+          EnableIPv6 = true;
         };
+        Scan = {
+          DisablePeriodicScan = true;
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+      };
+      firewall = {
+          enable = true;
+          # allowedTCPPorts = [ 443 80 ];
+          # allowedUDPPorts = [ 443 80 44857 ];
+          allowPing = false;
+      };
+      useDHCP = true;
     };
     # Set environment variables
     environment.variables = {
@@ -177,6 +182,7 @@
   hardware.firmware = with pkgs; [
     linux-firmware
   ];
+  services.gnome.gnome-keyring.enable = true;
 
     # Do not touch
   system.stateVersion = "24.05";
