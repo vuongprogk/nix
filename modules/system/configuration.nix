@@ -72,7 +72,7 @@
 
     # Set up locales (timezone and keyboard layout)
     time.timeZone = "Asia/Ho_Chi_Minh";
-	i18n.extraLocaleSettings = {
+    i18n.extraLocaleSettings = {
 	    LC_ADDRESS = "vi_VN";
 	    LC_IDENTIFICATION = "vi_VN";
 	    LC_MEASUREMENT = "vi_VN";
@@ -84,16 +84,6 @@
 	    LC_TIME = "vi_VN";
 	  };
     i18n.defaultLocale = "en_US.UTF-8";
-    i18n.inputMethod = {
-      type = "fcitx5";
-      enable = true;
-      fcitx5.addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-gtk
-        fcitx5-bamboo
-      ];
-    };
-    i18n.inputMethod.fcitx5.waylandFrontend=true;
     console = {
         font = "Lat2-Terminus16";
         keyMap = "us";
@@ -109,6 +99,7 @@
     # Set up networking and secure it
     networking = {
         wireless.iwd.enable = true;
+        wireless.enable = false;
         wireless.iwd.settings = {
           General = {
             EnableNetworkConfiguration = true;
@@ -127,7 +118,6 @@
             allowPing = false;
         };
     };
-
     # Set environment variables
     environment.variables = {
         NIXOS_CONFIG = "$HOME/.config/nixos/configuration.nix";
@@ -183,6 +173,10 @@
   programs.hyprland.enable = true;
   nixpkgs.config.allowUnfree = true;
   boot.supportedFilesystems = [ "ntfs" ];
+  hardware.enableAllFirmware = true;
+  hardware.firmware = with pkgs; [
+    linux-firmware
+  ];
 
     # Do not touch
   system.stateVersion = "24.05";

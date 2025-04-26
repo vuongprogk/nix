@@ -20,7 +20,7 @@ in {
         position = "top";
         spacing = 2;
 
-        modules-left = [ "group/power" "group/battery" "group/backlight" "group/cpu" "group/memory" "group/pulseaudio" "keyboard-state" ];
+        modules-left = [ "group/power" "group/battery" "group/backlight" "group/cpu" "group/memory" "group/pulseaudio" "keyboard-state" "network"];
         modules-center = [ "custom/hyprprofile" "hyprland/workspaces" ];
         modules-right = [ "group/time" "idle_inhibitor" "tray" ];
 
@@ -85,6 +85,16 @@ in {
             "locked" = "󰎠 ";
             "unlocked" = "󱧓 ";
           };
+        };
+        "network"= {
+          "interface"= "wlan0";
+          "format-wifi"= "{icon} {essid} ({signalStrength}%)";
+          "format-icons"= ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
+          "format-ethernet"= "{ipaddr}/{cidr}";
+          "format-disconnected"= "Disconnected ⚡";
+          "tooltip-format"= "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}";
+          "on-click"= "foot -e iwctl";
+          "on-click-right"= "nm-connection-editor";
         };
         "hyprland/workspaces" = {
           "format" = "{icon}";
