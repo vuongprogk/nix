@@ -12,6 +12,6 @@ in {
     services.dunst = {
       enable = true;
     };
-    home.file."${config.home.homeDirectory}/.config/dunst/dunstrc".source = ./dunstrc;
+    home.file."${config.home.homeDirectory}/.config/dunst/dunstrc".source = lib.mkForce ./dunstrc;
   };
 }
