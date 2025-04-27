@@ -136,6 +136,7 @@
         DIRENV_LOG_FORMAT = "";
         ANKI_WAYLAND = "1";
         DISABLE_QT5_COMPAT = "0";
+        CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
     environment.sessionVariables = {
       GTK_THEME = "Adwaita-dark";
