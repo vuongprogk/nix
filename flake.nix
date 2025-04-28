@@ -34,7 +34,6 @@
                       { networking.hostName = hostname; }
                       # General configuration (users, networking, sound, etc)
                       ./modules/system/configuration.nix
-                      ./modules/fcitx5/default.nix
                       # Hardware config (bootloader, kernel modules, filesystems, etc)
                       # DO NOT USE MY HARDWARE CONFIG!! USE YOUR OWN!!
                       (./. + "/hosts/${hostname}/hardware-configuration.nix")

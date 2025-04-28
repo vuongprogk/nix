@@ -20,6 +20,5 @@
     # system
     xdg.enable = true;
     packages.enable = true;
-    fcitx5.enable = true;
   };
 }
