@@ -15,7 +15,6 @@
       ./gpg
       ./direnv
       ./xdg
-      ./ibusbambo
 	    ./packages
     ];
 }

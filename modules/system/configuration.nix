@@ -141,6 +141,9 @@
     environment.sessionVariables = {
       GTK_THEME = "Adwaita-dark";
       GTK_APPLICATION_PREFER_DARK_THEME = "1";
+      GTK_IM_MODULE = "ibus";
+      QT_IM_MODULE = "ibus";
+      XMODIFIERS = "@im=ibus";
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure
