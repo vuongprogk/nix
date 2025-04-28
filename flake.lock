@@ -41,41 +41,7 @@
         "type": "github"
       }
     },
-    "ibus-bamboo": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1744461429,
-        "narHash": "sha256-KN/wjG4KXdvH51+9Cr3S1kmlCyL5EpfO/pCsQMQ6OSk=",
-        "owner": "BambooEngine",
-        "repo": "ibus-bamboo",
-        "rev": "831fa87dd6af2dd36398630204a3a5c8a92fce7d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BambooEngine",
-        "repo": "ibus-bamboo",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1736701207,
-        "narHash": "sha256-jG/+MvjVY7SlTakzZ2fJ5dC3V1PrKKrUEOEE30jrOKA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "ed4a395ea001367c1f13d34b1e01aa10290f67d6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1744932701,
         "narHash": "sha256-fusHbZCyv126cyArUwwKrLdCkgVAIaa/fQJYFlCEqiU=",
@@ -116,8 +82,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "ibus-bamboo": "ibus-bamboo",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nur": "nur"
       }
     },
