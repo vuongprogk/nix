@@ -144,6 +144,8 @@
       GTK_IM_MODULE = "ibus";
       QT_IM_MODULE = "ibus";
       XMODIFIERS = "@im=ibus";
+      SDL_IM_MODULE = "ibus";
+      INPUT_METHOD = "ibus";
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure

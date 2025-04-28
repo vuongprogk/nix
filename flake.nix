@@ -14,13 +14,10 @@
           url = "github:nix-community/NUR";
           inputs.nixpkgs.follows = "nixpkgs";
       };
-      ibus-bamboo = {
-        url = "github:BambooEngine/ibus-bamboo";
-      };
   };
 
   # All outputs for the system (configs)
-  outputs = { self, home-manager, nixpkgs, nur,ibus-bamboo, ... }@inputs: 
+  outputs = { self, home-manager, nixpkgs, nur, ... }@inputs: 
       let
           inherit (self) outputs;
           system = "x86_64-linux"; #current system
@@ -37,7 +34,6 @@
                       { networking.hostName = hostname; }
                       # General configuration (users, networking, sound, etc)
                       ./modules/system/configuration.nix
-                      ./modules/ibus/default.nix
                       # Hardware config (bootloader, kernel modules, filesystems, etc)
                       # DO NOT USE MY HARDWARE CONFIG!! USE YOUR OWN!!
                       (./. + "/hosts/${hostname}/hardware-configuration.nix")
