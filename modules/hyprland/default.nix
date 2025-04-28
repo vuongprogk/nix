@@ -7,7 +7,7 @@ in {
   options.modules.hyprland= { enable = mkEnableOption "hyprland"; };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-        wofi wlsunset wl-clipboard hyprland hyprcursor hyprlock hypridle waybar hyprpaper pavucontrol blueman
+        wofi wlsunset wl-clipboard hyprland hyprcursor hyprlock hypridle waybar hyprpaper pavucontrol blueman hyprnome
     ];
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
     home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
@@ -229,8 +229,8 @@ in {
           "format-source-muted" = "";
           "format-icons" = {
             "headphone" = "";
-            "hands-free" = "";
-            "headset" = "";
+            "hands-free" = "󱡏";
+            "headset" = "󰋏";
             "phone" = "";
             "portable" = "";
             "car" = "";
@@ -310,35 +310,34 @@ in {
           background: inherit;
       }
 
-      #workspaces button {
-          padding: 0px 6px;
-          background-color: transparent;
-          color: #313244;
-      }
-
-      #workspaces button:hover {
-        background: #11111b;
+    #workspaces button {
+        background-color: transparent;
+        border: none;
+        padding: 0 7px;
+        color: #313244;
+        border-radius: 8px;
+        min-height: 0;
+        min-width: 0;
+    }
+    
+    #workspaces button:hover {
+        background-color: transparent;
         color: #cdd6f4;
-        border-radius: 7px;
-      }
-
-      #workspaces button.active {
+    }
+    
+    #workspaces button.active {
         color: #f5a97f;
-      }
-
-      #workspaces button.focused {
+    }
+    
+    #workspaces button.focused {
         color: #a6adc8;
-        background: #eba0ac;
-        border-radius: 7px;
-      }
-
-
-      #workspaces button.urgent {
+        background-color: transparent;
+    }
+    
+    #workspaces button.urgent {
         color: #11111b;
         background: #a6e3a1;
-        border-radius: 7px;
-      }
-
+    }
       #battery,
       #cpu,
       #memory,
@@ -359,7 +358,7 @@ in {
       #custom-reboot,
       #custom-power,
       #mpd {
-        background: #000000;
+        background-color: transparent;
         border: none;
         border-radius: 8px;
         padding: 0 3px;

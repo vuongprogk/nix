@@ -28,6 +28,8 @@ in {
                 eval "$(zoxide init zsh)"
                 export PATH="$PATH:/home/ace/.dotnet/tools"
                 export PATH="$PATH:$HOME/.npm-global"
+                export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
+                export PATH="/home/ace/Downloads/flutter/bin:$PATH"
             '';
 
             # basically aliases for directories: 

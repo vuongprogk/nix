@@ -14,10 +14,13 @@
             url = "github:nix-community/NUR";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        ibus-bamboo = {
+          url = "github:BambooEngine/ibus-bamboo";
+        };
     };
 
     # All outputs for the system (configs)
-    outputs = { home-manager, nixpkgs, nur, ... }@inputs: 
+    outputs = { home-manager, nixpkgs, nur,ibus-bamboo, ... }@inputs: 
         let
             system = "x86_64-linux"; #current system
             pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;

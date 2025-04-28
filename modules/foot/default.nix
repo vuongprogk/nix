@@ -10,7 +10,7 @@ in {
             enable = true;
             settings = {
                 main = {
-                    font = "JetBrainsMono NF:size=14";
+                    font = "JetBrainsMono NF:size=14:weight=semibold";
                     pad = "12x12";
                 };
                 colors = {
@@ -34,6 +34,7 @@ in {
                     bright5="b072d1";# bright magenta
                     bright6="59e3e3";# bright cyan
                     bright7="d9e0ee";# bright white
+                    alpha=0.88;
                 };
             };
         };
