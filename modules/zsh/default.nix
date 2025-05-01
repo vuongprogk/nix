@@ -6,10 +6,12 @@ in {
     options.modules.zsh = { enable = mkEnableOption "zsh"; };
 
     config = mkIf cfg.enable {
-    	home.packages = [
-	    pkgs.zsh
-      pkgs.nodejs
-      pkgs.nodePackages.npm
+    	home.packages = with pkgs;[
+	    zsh
+      nodejs
+      nodePackages.npm
+      nodePackages.nodemon
+      nodePackages.typescript
 	];
 
         programs.zsh = {

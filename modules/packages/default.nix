@@ -13,7 +13,7 @@ in {
           ntfs3g docker-compose vscode fd yazi tmux kubectl networkmanagerapplet 
           dotnet-sdk dotnet-ef dotnet-aspnetcore
           vlc discord lazygit xdg-desktop-portal-hyprland kdePackages.xwaylandvideobridge fzf 
-          jetbrains.rider swaynotificationcenter google-chrome fcitx5 fcitx5-unikey
+          jetbrains.rider swaynotificationcenter google-chrome
           rustc cargo android-studio  cmake ninja pkg-config gtk3 clang openjdk17
       ];
   };

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs,lib, ... }:
 
 {
     # Remove unecessary preinstalled packages
@@ -88,6 +88,15 @@
         font = "Lat2-Terminus16";
         keyMap = "us";
     };
+    i18n.inputMethod = {
+      type = "fcitx5";
+      enable = true;
+      fcitx5.addons = with pkgs; [
+        fcitx5-bamboo
+        fcitx5-gtk
+      ];
+      fcitx5.waylandFrontend = true;
+    };
 
     # Set up user and enable sudo
     users.users.ace= {
@@ -138,11 +147,13 @@
         DISABLE_QT5_COMPAT = "0";
         CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
-    environment.sessionVariables = {
+    environment.sessionVariables = lib.mkDefault {
       GTK_THEME = "Adwaita-dark";
       GTK_APPLICATION_PREFER_DARK_THEME = "1";
-      GTK_IM_MODULE="fcitx";
-      QT_IM_MODULE="fcitx";
+      XMODIFIERS = "@im=fcitx";
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      INPUT_METHOD = "fcitx";
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure
@@ -173,13 +184,6 @@
             enable = true;
         };
     };
-
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-unikey ];
-  };
-  services.fcitx5.enable = true;
   # Input
   services.libinput.enable = true;
 

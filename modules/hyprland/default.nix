@@ -13,6 +13,7 @@ in {
     home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     home.file.".config/hypr/hypridle.conf".source = ./hypridle.conf;
     home.file.".config/hypr/assets/wall.png".source = ./assets/wall.png;
+    home.file."~/.config/fcitx5/conf/classicui.conf".source = ./classicui.conf;
     programs.hyprlock.enable = true;
     programs.waybar = {
     enable = true;
