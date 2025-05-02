@@ -186,6 +186,12 @@
     };
   # Input
   services.libinput.enable = true;
+  services.fprintd.enable = true;
+
+  security.pam.services = {
+    sudo.fprintAuth = true;
+    gdm.fprintAuth = true; # For GNOME Display Manager
+  };
 
   # Hyprland dependencies (especially if you're not using GDM)
   programs.hyprland.enable = true;
