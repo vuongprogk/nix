@@ -9,7 +9,7 @@ in {
       programs.rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
+        theme = ./theme.rasi;
       };
-      home.file.".config/rofi/config.rasi".source = ./config.rasi;
     };
 }

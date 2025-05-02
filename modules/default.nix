@@ -8,7 +8,7 @@
       ./foot
       ./dunst
       ./hyprland
-      ./wofi
+      ./rofi
       ./nvim
       ./zsh
       ./git
