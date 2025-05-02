@@ -10,7 +10,7 @@ in {
             enable = true;
             settings = {
                 main = {
-                    font = "JetBrainsMono NF:size=14:weight=semibold";
+                    font = "JetBrainsMono NF:size=12:weight=semibold";
                     pad = "12x12";
                 };
                 colors = {

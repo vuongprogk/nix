@@ -14,7 +14,6 @@
       ./git
       ./gpg
       ./direnv
-      ./xdg
 	    ./packages
     ];
 }
