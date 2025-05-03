@@ -14,6 +14,7 @@ in {
       nodePackages.typescript
 	];
 
+        home.file."~/craver.omp.json".source = ./craver.omp.json;
         programs.zsh = {
             enable = true;
 
