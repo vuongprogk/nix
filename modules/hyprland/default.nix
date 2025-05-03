@@ -297,8 +297,8 @@ in {
       }
 
       button {
-          padding: 5px;
-          margin: 5px;
+          padding: 3px;
+          margin: 3px;
           text-shadow: none;
       }
 
@@ -314,9 +314,8 @@ in {
     #workspaces button {
         background-color: transparent;
         border: none;
-        padding: 0 7px;
+        padding: 0 3px;
         color: #313244;
-        border-radius: 8px;
         min-height: 0;
         min-width: 0;
     }
@@ -339,6 +338,15 @@ in {
         color: #11111b;
         background: #a6e3a1;
     }
+    #workspaces button:hover,
+    #workspaces button:focus,
+    #workspaces button.active,
+    #workspaces button.focused {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
       #battery,
       #cpu,
       #memory,
