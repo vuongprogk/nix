@@ -154,6 +154,8 @@
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       INPUT_METHOD = "fcitx";
+      _JAVA_AWT_WM_NONREPARENTING=1;
+      GDK_BACKEND="x11";
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure

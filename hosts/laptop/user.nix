@@ -9,6 +9,7 @@
     dunst.enable = true;
     hyprland.enable = true;
     rofi.enable = true;
+    rider.enable = true;
 
     # cli
     nvim.enable = true;

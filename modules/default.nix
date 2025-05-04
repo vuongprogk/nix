@@ -15,5 +15,6 @@
       ./gpg
       ./direnv
 	    ./packages
+      ./rider
     ];
 }
