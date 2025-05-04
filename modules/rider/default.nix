@@ -1,16 +1,13 @@
-{ pkgs, lib, config, ... }:
-
+{  lib, config, pkgs, ... }:
 with lib;
-let cfg = config.modules.rider;
-
+let
+    cfg = config.modules.rider;
+    # Source my theme
 in {
     options.modules.rider = { enable = mkEnableOption "rider"; };
     config = mkIf cfg.enable {
-      programs.jetbrains.rider = {
-        enable = true;
-        package = pkgs.jetbrains.rider.override {
-          enableFhsSupport = true;
-        };
-      };
+      home.packages = with pkgs;[
+        jetbrains.rider
+      ];
     };
 }

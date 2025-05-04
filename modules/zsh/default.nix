@@ -7,12 +7,12 @@ in {
 
     config = mkIf cfg.enable {
     	home.packages = with pkgs;[
-	    zsh
-      nodejs
-      nodePackages.npm
-      nodePackages.nodemon
-      nodePackages.typescript
-	];
+        zsh
+        nodejs
+        nodePackages.npm
+        nodePackages.nodemon
+        nodePackages.typescript
+      ];
 
         home.file."craver.omp.json".source = ./craver.omp.json;
         programs.zsh = {
