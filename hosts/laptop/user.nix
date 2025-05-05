@@ -10,6 +10,7 @@
     hyprland.enable = true;
     rofi.enable = true;
     rider.enable = true;
+    tmux.enable = true;
 
     # cli
     nvim.enable = true;
