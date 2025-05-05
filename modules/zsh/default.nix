@@ -11,6 +11,7 @@ in {
         nodejs
         nodePackages.npm
         nodePackages.nodemon
+        bun
         nodePackages.typescript
       ];
 
@@ -72,7 +73,7 @@ in {
                 ls = "exa -a --icons";
                 tree = "exa --tree --icons";
                 nd = "nix develop -c $SHELL";
-                rebuild = "doas -u ace nixos-rebuild switch --flake .#$(hostname) --fast; notify-send 'Rebuild complete\!'";
+                rebuild = "doas nixos-rebuild switch --flake .#$(hostname) --fast; notify-send 'Rebuild complete\!'";
                 ll = "ls -l";
                 cd = "z";
             };
