@@ -109,7 +109,7 @@
     networking = {
       wireless.iwd.enable = true;
       wireless.enable = false;
-    networkmanager.enable = false;
+      networkmanager.enable = false;
       wireless.iwd.settings = {
         General = {
           EnableNetworkConfiguration = true;
@@ -118,7 +118,7 @@
           EnableIPv6 = true;
         };
         Scan = {
-          DisablePeriodicScan = true;
+          DisablePeriodicScan = false;
         };
         Settings = {
           AutoConnect = true;
