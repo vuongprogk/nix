@@ -12,7 +12,7 @@ in {
           wf-recorder anki-bin go docker minikube zoxide perl
           ntfs3g docker-compose vscode fd yazi tmux kubectl networkmanagerapplet 
           dotnet-sdk dotnet-ef dotnet-aspnetcore
-          vlc discord lazygit xdg-desktop-portal-hyprland kdePackages.xwaylandvideobridge fzf 
+          vlc discord xdg-desktop-portal-hyprland kdePackages.xwaylandvideobridge
           swaynotificationcenter google-chrome libfprint usbutils
           rustc cargo android-studio cmake ninja pkg-config gtk3 clang openjdk17
       ];

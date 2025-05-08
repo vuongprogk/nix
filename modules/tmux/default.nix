@@ -17,9 +17,22 @@ in {
       escapeTime = 10;
 
       plugins = with pkgs.tmuxPlugins; [
-        tmuxPlugins.tokyo-night-tmux
         vim-tmux-navigator
         better-mouse-mode
+        {
+          plugin = resurrect;
+          extraConfig = ''
+            # set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-capture-pane-contents 'on'
+          '';
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            # set -g @continuum-save-interval '60' # minutes
+          '';
+        }
       ];
 
       extraConfig = ''

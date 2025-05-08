@@ -6,6 +6,10 @@ let
 in {
     options.modules.nvim = { enable = mkEnableOption "nvim"; };
     config = mkIf cfg.enable {
+      home.packages = with pkgs;[
+        gnumake lazygit
+      ];
+
         programs.zsh = {
             initExtra = ''
                 export EDITOR="nvim"
