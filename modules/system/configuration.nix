@@ -1,6 +1,9 @@
 { config, pkgs, inputs,lib, ... }:
 
 {
+    imports = [
+      ./disk.nix
+    ];
     # Remove unecessary preinstalled packages
     environment.defaultPackages = [ ];
     services.xserver.desktopManager.xterm.enable = false;
