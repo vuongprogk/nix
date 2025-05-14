@@ -17,5 +17,6 @@
 	    ./packages
       ./rider
       ./tmux
+      ./eww
     ];
 }

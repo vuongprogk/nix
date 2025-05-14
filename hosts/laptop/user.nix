@@ -21,5 +21,6 @@
 
     # system
     packages.enable = true;
+    eww.enable = true;
   };
 }
