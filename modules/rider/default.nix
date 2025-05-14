@@ -9,12 +9,5 @@ in {
       home.packages = with pkgs;[
         jetbrains.rider
       ];
-      home.sessionVariables = {
-        GDK_SCALE = "1";
-        GDK_DPI_SCALE = "1";
-        _JAVA_OPTIONS = "-Dsun.java2d.uiScale=1.0";
-        LIBGL_ALWAYS_SOFTWARE = "1";
-        _JAVA_AWT_WM_NONREPARENTING = "1";
-      };
     };
 }

@@ -7,7 +7,7 @@ in {
   options.modules.hyprland= { enable = mkEnableOption "hyprland"; };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-        wlsunset wl-clipboard hyprland hyprcursor hyprlock hypridle hyprpaper pavucontrol blueman hyprnome
+        wlsunset wl-clipboard hyprland hyprcursor hyprlock hypridle hyprpaper
     ];
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
     home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;

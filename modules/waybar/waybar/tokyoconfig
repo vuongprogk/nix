@@ -5,8 +5,8 @@
     "modules-center": ["custom/playerctl"],
     "modules-right": ["backlight","pulseaudio", "battery", "network","clock"],
     "custom/arch": {
-      "format": "  ",
-      "on-click": "sh /home/knightfall/.config/hypr/scripts/exec_wofi application_launcher"
+      "format": " 󱄅 ",
+      "on-click": "pgrep -x rofi || rofi -show drun"
     },
     "custom/cava_test": {
         "format": "{}",
@@ -66,7 +66,7 @@
       "format-wifi": "<span color='#90cdfa'> </span>{essid}({signalStrength}%)",
       "format-ethernet": "{ipaddr}/{cidr} ",
       "format-disconnected": "<span color='#ff005f'>󰖪 </span>No Network",
-      "on-click": "kitty nmtui"
+      "on-click": "foot iwctl"
     },
     "battery": {
       "format": "<span color='#a8cd76'>{icon}</span> {capacity}%",
@@ -91,7 +91,7 @@
     },
     "memory": {
     "format": "<span foreground='#9ece6a'></span> {}%",
-    "on-click": "kitty htop"
+    "on-click": "foot htop"
     },
     "tray": {
     "icon-size": 20,

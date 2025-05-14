@@ -16,6 +16,7 @@
       ./direnv
 	    ./packages
       ./rider
+      ./tmux
       ./waybar
     ];
 }
