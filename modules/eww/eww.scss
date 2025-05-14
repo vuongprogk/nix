@@ -1,42 +1,19 @@
-* {
-  all: unset; // Unsets everything so you can style everything from scratch
-}
+/** Colors *******************************************/
+$bg: #1a1b26;
+$bg-alt: #16161e;
+$fg: #c0caf5;
+$fg-alt: #a9b1d6;
+$red: #db4b4b;
+$green: #9ece6a;
+$yellow: #e0af68;
+$orange: #ff9e64;
+$blue: #7aa2f7;
+$purple: #9d7cd8;
+$cyan: #7dcfff;
+$gray: #565f89;
+$gray-alt: #292E42;
 
-// Global Styles
-.bar {
-  background-color: #3a3a3a;
-  color: #b0b4bc;
-  padding: 10px;
-}
-
-// Styles on classes (see eww.yuck for more information)
-
-.sidestuff slider {
-  all: unset;
-  color: #ffd5cd;
-}
-
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-
-.label-ram {
-  font-size: large;
-}
-
-.workspaces button:hover {
-  color: #D35D6E;
-}
+@import "./System-Menu/eww.scss";
+@import "./Player/eww.scss";
+@import "./Misc/eww.scss";
+@import "./Main/eww.scss";

@@ -6,26 +6,18 @@ in {
     options.modules.eww = { enable = mkEnableOption "eww"; };
 
     config = mkIf cfg.enable {
-        # theres no programs.eww.enable here because eww looks for files in .config
-        # thats why we have all the home.files
-
-        # eww package
         home.packages = with pkgs; [
-            eww-wayland
+            eww
             pamixer
             brightnessctl
-            (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         ];
 
         # configuration
         home.file.".config/eww/eww.scss".source = ./eww.scss;
         home.file.".config/eww/eww.yuck".source = ./eww.yuck;
-
-        # scripts
-        home.file.".config/eww/scripts/getvol" = {
-            source = ./scripts/getvol;
-            executable = true;
-        };
-
+        homm.file."config/eww/Main".source = ./eww/Main;
+        homm.file."config/eww/Misc".source = ./eww/Misc;
+        homm.file."config/eww/Player".source = ./eww/Player;
+        homm.file."config/eww/System-Menu".source = ./eww/System-Menu;
     };
 }
