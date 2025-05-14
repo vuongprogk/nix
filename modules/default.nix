@@ -16,7 +16,5 @@
       ./direnv
 	    ./packages
       ./rider
-      ./tmux
-      ./eww
     ];
 }
