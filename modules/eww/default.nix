@@ -13,11 +13,6 @@ in {
         ];
 
         # configuration
-        home.file.".config/eww/eww.scss".source = ./eww.scss;
-        home.file.".config/eww/eww.yuck".source = ./eww.yuck;
-        home.file."config/eww/Main".source = ./eww/Main;
-        home.file."config/eww/Misc".source = ./eww/Misc;
-        home.file."config/eww/Player".source = ./eww/Player;
-        home.file."config/eww/System-Menu".source = ./eww/System-Menu;
+        home.file."config/eww".source = ./eww;
     };
 }
