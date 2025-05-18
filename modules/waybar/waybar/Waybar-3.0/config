@@ -60,7 +60,7 @@
   },
   "hyprland/workspaces": {
     "all-outputs": true,
-    "active-only": false,
+    "active-only": true,
     "on-click": "activate",
     "format": "{icon}",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -125,7 +125,7 @@
     "on-click-right": "foot -e iwctl",
     "format-ethernet": " wired",
     "tooltip-format": "{essid} {signalStrength}%",
-    "format-disconnected": ""
+    "format-disconnected": "Disconnected ⚡"
   },
 
   "pulseaudio": {
@@ -169,7 +169,7 @@
 
  "custom/pacman": {
    "format": "  ",
-   "on-click": "blueberry"
+   "on-click": "blueman-manager",
  },
   "custom-pacman-update-icon-background": {
     "format": ""

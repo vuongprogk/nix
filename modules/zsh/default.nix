@@ -34,7 +34,7 @@ in {
                 eval "$(zoxide init zsh)"
 
                 # Add paths to the PATH environment variable in one line
-                export PATH="$PATH:/home/ace/.dotnet/tools:$HOME/.npm-global:/home/ace/Downloads/flutter/bin"
+                export PATH="$PATH:/home/ace/.dotnet/tools:$HOME/.npm-global:/home/ace/Documents/flutter/bin"
 
                 # Set JAVA_HOME dynamically based on javac location
                 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))

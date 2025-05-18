@@ -7,6 +7,7 @@
     # Remove unecessary preinstalled packages
     environment.defaultPackages = [ ];
     services.xserver.desktopManager.xterm.enable = false;
+    services.xserver.desktopManager.runXdgAutostartIfNone = true;
     programs.zsh.enable = true;
 
     virtualisation.docker.enable = true;
@@ -97,6 +98,8 @@
       fcitx5.addons = with pkgs; [
         fcitx5-bamboo
         fcitx5-gtk
+        qt6Packages.fcitx5-qt
+        fcitx5-configtool
       ];
       fcitx5.waylandFrontend = true;
     };
@@ -150,12 +153,11 @@
         DISABLE_QT5_COMPAT = "0";
         CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
-    environment.sessionVariables = lib.mkDefault {
+    environment.sessionVariables = lib.mkForce {
       GTK_THEME = "Adwaita-dark";
       GTK_APPLICATION_PREFER_DARK_THEME = "1";
       XMODIFIERS = "@im=fcitx";
-      GTK_IM_MODULE = "fcitx";
-      QT_IM_MODULE = "fcitx";
+      QT_IM_MODULES="wayland;fcitx;ibus";
       INPUT_METHOD = "fcitx";
     };
 

@@ -9,7 +9,7 @@ in {
     config = mkIf cfg.enable {
 
         home.packages = with pkgs; [
-          blueberry playerctl kdePackages.filelight pulseaudio
+          playerctl kdePackages.filelight pulseaudio
         ];
         programs.waybar = {
             enable = true;
