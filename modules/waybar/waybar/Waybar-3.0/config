@@ -60,7 +60,7 @@
   },
   "hyprland/workspaces": {
     "all-outputs": true,
-    "active-only": true,
+    "active-only": false,
     "on-click": "activate",
     "format": "{icon}",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
