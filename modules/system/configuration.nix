@@ -144,8 +144,6 @@
         NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
         XDG_DATA_HOME = "$HOME/.local/share";
         PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-        GTK_RC_FILES = "$HOME/.local/share/gtk-1.0/gtkrc";
-        GTK2_RC_FILES = "$HOME/.local/share/gtk-2.0/gtkrc";
         MOZ_ENABLE_WAYLAND = "1";
         EDITOR = "nvim";
         DIRENV_LOG_FORMAT = "";
@@ -159,6 +157,7 @@
       XMODIFIERS = "@im=fcitx";
       QT_IM_MODULES="wayland;fcitx;ibus";
       INPUT_METHOD = "fcitx";
+      NIXOS_OZONE_WL = "1";
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure
@@ -192,6 +191,29 @@
   # Input
   services.libinput.enable = true;
   services.fprintd.enable = true;
+  services.nginx = {
+    enable = true;
+
+    virtualHosts."smartedu.com" = {
+      root = "/var/www"; # Optional, but recommended
+      listen = [ { addr = "0.0.0.0"; port = 80; } ];
+
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8080";
+        proxyWebsockets = true; # Optional: enable WebSocket proxying
+        extraConfig = ''
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        '';
+      };
+    };
+  };
+  networking.extraHosts = ''
+    127.0.0.1 smartedu.com
+  '';
+
 
   security.pam.services = {
     sudo.fprintAuth = true;
