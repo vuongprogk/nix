@@ -12,8 +12,8 @@ in {
           wf-recorder go docker minikube zoxide perl wpsoffice
           ntfs3g docker-compose vscode fd yazi tmux kubectl
           dotnet-sdk dotnet-ef dotnet-aspnetcore confluent-cli
-          vlc discord xdg-desktop-portal-hyprland kdePackages.xwaylandvideobridge
+          vlc kdePackages.xwaylandvideobridge xwayland
           google-chrome rustc cargo cmake ninja pkg-config gtk3 clang openjdk17 android-studio
-      ];
+    ];
   };
 }

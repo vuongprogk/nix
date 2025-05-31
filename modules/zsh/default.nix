@@ -26,7 +26,7 @@ in {
             autosuggestion.enable = true;
             syntaxHighlighting.enable = true;
             # .zshrc
-            initExtra = ''
+            initContent = ''
               # Initialize oh-my-posh with custom config
                 eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ~/craver.omp.json)"
 

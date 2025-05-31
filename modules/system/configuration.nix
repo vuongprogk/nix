@@ -11,9 +11,10 @@
     programs.zsh.enable = true;
 
     virtualisation.docker.enable = true;
+    services.flatpak.enable = true;
     # Laptop-specific packages (the other ones are installed in `packages.nix`)
     environment.systemPackages = with pkgs; [
-        acpi tlp git
+        acpi tlp git flatpak
     ];
 
     # Install fonts
@@ -35,17 +36,6 @@
       };
     };
 
-
-    # Wayland stuff: enable XDG integration, allow sway to use brillo
-    xdg = {
-        portal = {
-            enable = true;
-            extraPortals = with pkgs; [
-                xdg-desktop-portal-wlr
-                xdg-desktop-portal-gtk
-            ];
-        };
-    };
 
     # Nix settings, auto cleanup and enable flakes
     nix = {
@@ -144,7 +134,6 @@
         NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
         XDG_DATA_HOME = "$HOME/.local/share";
         PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-        MOZ_ENABLE_WAYLAND = "1";
         EDITOR = "nvim";
         DIRENV_LOG_FORMAT = "";
         ANKI_WAYLAND = "1";
@@ -152,12 +141,16 @@
         CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
     environment.sessionVariables = lib.mkForce {
+      MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
+      T_QPA_PLATFORM = "wayland";
+      GDK_BACKEND = "wayland";
+      WLR_NO_HARDWARE_CURSORS = "1";
       GTK_THEME = "Adwaita-dark";
       GTK_APPLICATION_PREFER_DARK_THEME = "1";
       XMODIFIERS = "@im=fcitx";
       QT_IM_MODULES="wayland;fcitx;ibus";
       INPUT_METHOD = "fcitx";
-      NIXOS_OZONE_WL = "1";
     };
 
     # # Security disable sudo and enable doas which act like sudo but is more secure
@@ -175,13 +168,13 @@
         };
     };
 
-    # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  programs.nix-ld.enable = true;
+      # Enable the X11 windowing system.
+    services.xserver.enable = true;
+    programs.nix-ld.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true; 
+    # Enable the GNOME Desktop Environment.
+    services.displayManager.gdm.enable = true;
+    services.desktopManager.gnome.enable = true; 
     hardware = {
         bluetooth.enable = true;
         graphics = {
@@ -229,6 +222,7 @@
     linux-firmware
   ];
   services.gnome.gnome-keyring.enable = true;
+  services.dbus.enable = true;
 
     # Do not touch
   system.stateVersion = "24.05";
