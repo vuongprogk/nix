@@ -1,22 +1,28 @@
 { inputs, pkgs, config, ... }:
 
 {
-    home.stateVersion = "21.03";
-    imports = [
-      # gui
-      ./firefox
-      ./foot
-      ./dunst
-      ./hyprland
-      ./rofi
-      ./nvim
-      ./zsh
-      ./git
-      ./gpg
-      ./direnv
-	    ./packages
-      ./rider
-      ./tmux
-      ./waybar
-    ];
+  home.stateVersion = "24.05";  # Use current stable version
+  imports = [
+    # GUI applications
+    ./firefox
+    ./foot
+    ./dunst
+    ./hyprland
+    ./rofi
+    ./waybar
+    
+    # CLI tools
+    ./nvim
+    ./zsh
+    ./git
+    ./gpg
+    ./direnv
+    ./tmux
+    
+    # Development
+    ./rider
+    
+    # Packages
+    ./packages
+  ];
 }

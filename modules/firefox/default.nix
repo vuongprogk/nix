@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 with lib;
 let
     cfg = config.modules.firefox;
@@ -23,9 +23,10 @@ in {
             # Privacy about:config settings
             profiles.ace = {
                 settings = {
+                    # Privacy and security
                     "browser.send_pings" = false;
                     "browser.urlbar.speculativeConnect.enabled" = false;
-                    "dom.event.clipboardevents.enabled" = true;
+                    "dom.event.clipboardevents.enabled" = false;
                     "media.navigator.enabled" = false;
                     "network.cookie.cookieBehavior" = 1;
                     "network.http.referer.XOriginPolicy" = 2;
@@ -33,12 +34,9 @@ in {
                     "beacon.enabled" = false;
                     "browser.safebrowsing.downloads.remote.enabled" = false;
                     "network.IDN_show_punycode" = true;
-                    "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-                    "app.shield.optoutstudies.enabled" = false;
-                    "dom.security.https_only_mode_ever_enabled" = true;
-                    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-                    "browser.toolbars.bookmarks.visibility" = "never";
                     "geo.enabled" = false;
+                    "privacy.firstparty.isolate" = true;
+                    "network.http.sendRefererHeader" = 0;
 
                     # Disable telemetry
                     "browser.newtabpage.activity-stream.feeds.telemetry" = false;
@@ -49,25 +47,30 @@ in {
                     "toolkit.telemetry.unified" = false;
                     "toolkit.telemetry.server" = "";
 
-                    # Disable Pocket
+                    # Disable Pocket and recommendations
                     "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
                     "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
                     "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
                     "browser.newtabpage.activity-stream.showSponsored" = false;
                     "extensions.pocket.enabled" = false;
 
-                    # Disable prefetching
+                    # Disable prefetching and features
                     "network.dns.disablePrefetch" = true;
                     "network.prefetch-next" = false;
-
-                    # Disable JS in PDFs
                     "pdfjs.enableScripting" = false;
-
-                    # Harden SSL 
-                    "security.ssl.require_safe_negotiation" = true;
-
-                    # Extra
                     "identity.fxaccounts.enabled" = false;
+
+                    # UI and behavior
+                    "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+                    "app.shield.optoutstudies.enabled" = false;
+                    "dom.security.https_only_mode_ever_enabled" = true;
+                    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+                    "browser.toolbars.bookmarks.visibility" = "never";
+                    "browser.uidensity" = 1;
+                    "media.autoplay.enabled" = false;
+                    "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
+
+                    # Search and suggestions
                     "browser.search.suggest.enabled" = true;
                     "browser.urlbar.shortcuts.bookmarks" = false;
                     "browser.urlbar.shortcuts.history" = false;
@@ -77,12 +80,9 @@ in {
                     "browser.urlbar.suggest.history" = true;
                     "browser.urlbar.suggest.openpage" = true;
                     "browser.urlbar.suggest.topsites" = false;
-                    "browser.uidensity" = 1;
-                    "media.autoplay.enabled" = false;
-                    "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
-                    
-                    "privacy.firstparty.isolate" = true;
-                    "network.http.sendRefererHeader" = 0;
+
+                    # Security
+                    "security.ssl.require_safe_negotiation" = true;
                 };
 
                 # userChome.css to make it look better

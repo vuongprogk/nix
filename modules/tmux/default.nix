@@ -15,9 +15,18 @@ in {
       shell = "${pkgs.zsh}/bin/zsh";
       keyMode = "vi";
       escapeTime = 10;
+      baseIndex = 1;
+      sensibleOnTop = true;
 
       plugins = with pkgs.tmuxPlugins; [
         vim-tmux-navigator
+        {
+          plugin = prefix-highlight;
+          extraConfig = ''
+            set -g @prefix_highlight_output_prefix "#[fg=#e0af68]#[bg=#16161e]#[fg=#16161e]#[bg=#e0af68]"
+            set -g @prefix_highlight_output_suffix ""
+          '';
+        }
       ];
 
       extraConfig = ''

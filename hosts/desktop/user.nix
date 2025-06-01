@@ -1,4 +1,4 @@
-{ config, lib, inputs, ...}:
+{ config, ...}:
 
 {
   imports = [ ../../modules/default.nix ];
@@ -9,6 +9,7 @@
     dunst.enable = true;
     hyprland.enable = true;
     rofi.enable = true;
+    waybar.enable = true;
 
     # cli
     nvim.enable = true;
