@@ -38,7 +38,16 @@
         INPUT_METHOD = "fcitx";
       };
     };
-
+    # XDG Desktop Portal configuration for screen sharing
+    xdg = {
+      portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-hyprland
+        ];
+      };
+    };
     # Services configuration
     services = {
       xserver = {
@@ -55,6 +64,14 @@
       fprintd.enable = true;
       gnome.gnome-keyring.enable = true;
       dbus.enable = true;
+      # PipeWire configuration for screen sharing
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        wireplumber.enable = true;
+      };
       nginx = {
         enable = true;
         virtualHosts."smartedu.com" = {
