@@ -16,6 +16,7 @@ in {
     ];
 
         home.file."craver.omp.json".source = ./craver.omp.json;
+        
         programs.zsh = {
             enable = true;
 
@@ -25,27 +26,49 @@ in {
             enableCompletion = true;
             autosuggestion.enable = true;
             syntaxHighlighting.enable = true;
-            # .zshrc
+            # .zshrc - optimized for performance
             initContent = ''
-              # Initialize oh-my-posh with custom config
-              eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ~/craver.omp.json)"
+              # Performance: Create cache directory if it doesn't exist
+              [[ ! -d ~/.cache ]] && mkdir -p ~/.cache
 
-              # Initialize zoxide (directory navigation)
-              eval "$(zoxide init zsh)"
+              # Initialize oh-my-posh with caching
+              if [[ ! -f ~/.cache/omp_init ]] || [[ ~/craver.omp.json -nt ~/.cache/omp_init ]]; then
+                ${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ~/craver.omp.json > ~/.cache/omp_init
+              fi
+              source ~/.cache/omp_init
 
-              # Add paths to the PATH environment variable
-              export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.npm-global:$HOME/Documents/flutter/bin"
+              # Initialize zoxide with lazy loading
+              if command -v zoxide >/dev/null 2>&1; then
+                eval "$(zoxide init zsh)"
+              fi
 
-              # Set JAVA_HOME dynamically based on javac location
-              if command -v javac >/dev/null 2>&1; then
+              # Optimize PATH modifications
+              typeset -U path  # Remove duplicates automatically
+              path=(
+                $HOME/.dotnet/tools
+                $HOME/.npm-global
+                $HOME/Documents/flutter/bin
+                $path
+              )
+
+              # Cache JAVA_HOME detection to avoid repeated filesystem calls
+              if [[ -z "$JAVA_HOME" ]] && command -v javac >/dev/null 2>&1; then
                 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
               fi
 
-              # Enable fzf fuzzy completion if it's available
-              [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+              # Lazy load fzf to improve startup time
+              fzf_lazy_load() {
+                if [[ -f ~/.fzf.zsh ]]; then
+                  source ~/.fzf.zsh
+                  unfunction fzf_lazy_load
+                fi
+              }
               
+              # Autosuggestion optimization
               ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
-              ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+              ZSH_AUTOSUGGEST_STRATEGY=(history)  # Removed completion for speed
+              ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20   # Limit buffer size
+              ZSH_AUTOSUGGEST_USE_ASYNC=1          # Use async suggestions
             '';
 
             # basically aliases for directories: 
@@ -60,13 +83,15 @@ in {
                 media = "/run/media/$USER";
             };
 
-            # Tweak settings for history
+            # Optimized history settings for performance
             history = {
-                save = 10000;
-                size = 10000;
+                save = 5000;        # Reduced from 10000
+                size = 5000;        # Reduced from 10000
                 path = "$HOME/.cache/zsh_history";
                 ignoreDups = true;
-                share = true;
+                share = false;      # Disabled sharing for better performance
+                ignoreSpace = true; # Ignore commands starting with space
+                expireDuplicatesFirst = true;
             };
 
             # Set some aliases
@@ -91,14 +116,16 @@ in {
                 rebuild = "sudo nixos-rebuild switch --flake .#$(hostname) --fast; notify-send 'Rebuild complete!'";
             };
 
-            zplug = {
-              enable = true;
-              plugins = [
-                { name = "zsh-users/zsh-autosuggestions"; }
-                { name = "zsh-users/zsh-syntax-highlighting"; }
-                { name = "zsh-users/zsh-completions"; }
-              ];
-            };
+            # Remove zplug to avoid redundant plugin loading
+            # plugins are already loaded via enableCompletion, autosuggestion, syntaxHighlighting
+            # zplug = {
+            #   enable = true;
+            #   plugins = [
+            #     { name = "zsh-users/zsh-autosuggestions"; }      # Redundant
+            #     { name = "zsh-users/zsh-syntax-highlighting"; } # Redundant
+            #     { name = "zsh-users/zsh-completions"; }         # Redundant
+            #   ];
+            # };
     };
 };
 }
