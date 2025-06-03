@@ -99,6 +99,9 @@
     };
 
     virtualisation.docker.enable = true;
+    virtualisation.docker.daemon.settings = {
+      "insecure-registries" = [ "192.168.100.21:30638" ];
+    };
 
     # Install fonts
     fonts = {
